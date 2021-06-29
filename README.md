@@ -3,7 +3,7 @@
 Black-Tool 1.5.0
 ```
 
-[![Python 3.9](https://img.shields.io/badge/Python-3.9-yellow.svg)](https://www.python.org/downloads/)   [![Python 3.5](https://img.shields.io/static/v1?label=python&message=3.5.0&color=red)](https://www.python.org/downloads/)
+[![Python 3.9](https://img.shields.io/badge/Python-3.9-yellow.svg)](https://www.python.org/downloads/)   [![Python 3.5](https://img.shields.io/static/v1?label=python&message=3.5&color=red)](https://www.python.org/downloads/)
 
 Install the tools and start hacking Attacking !
 ```
