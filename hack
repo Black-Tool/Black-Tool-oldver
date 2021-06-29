@@ -72,6 +72,7 @@ class color:
     prlblue = '\033[94m'
     white_light = '\033[97m'
 # ----------------------------------------------
+Black_Tool_OS_Err = "\nError, Please Run This Programm on Linux, Mac!\n"
 Black_Tool_Search_Err = color.red + "Error, " + color.green + "Please Check URL!" + color.End
 opt_shell = color.line + "Black-Tool" + color.End + "/ ~# "
 opt_cmd = color.line + "Black-Tool" + color.green + "/> " + color.End
@@ -1070,7 +1071,7 @@ def black_Cam_Hacking():
     choose3 = input(opt)
     if choose3 == '1':
         cls()
-        os.system("git clone https://github.com/mrprogrammer2938")
+        os.system("git clone https://github.com/mrprogrammer2938/Cam-Hackers")
         try19()
     elif choose3 == '2':
         cls()
@@ -2272,7 +2273,15 @@ def try12():
          Black_Tool_Start()
 if __name__ == '__main__':
   try:
-     arg()
+     if system == 'Linux':
+            arg()
+     elif system == 'Windows':
+        print(Black_Tool_OS_Err)
+     elif system == 'Mac':
+        arg()
+     else:
+        print(Black_Tool_OS_Err)
+        sys.exit()
   except IndexError:
       print("\nPlease, Usage: --help\n")
       sys.exit()
