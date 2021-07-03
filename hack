@@ -45,6 +45,10 @@ try:
     import ipapi
 except ImportError:
     os.system("pip install ipapi")
+if not sys.version_info(3,0):
+  exit()
+else:
+     import sys
 Black_Tool_Version = "\nBlack-Tool 1.4.0\n"
 user = subprocess.getoutput("whoami")
 black_Tool_date = subprocess.getoutput("date").replace("+0430","")
