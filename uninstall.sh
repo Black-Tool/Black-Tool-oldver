@@ -5,13 +5,19 @@ if [[ "$(id -u)" -ne 0 ]]; then
   echo "Please, Run This Programm as Root!"
   exit 1
 fi
-clear
-echo "Uninstalling..."
-sleep 2
-cd .. && rm -r Black-Tool && cd /usr/bin && rm -r hack
-echo ""
-echo "Finish...!"
-echo ""
-echo "Mr.nope: Good bye °^° "
-echo ""
-exit 1
+function Main() {
+       clear
+       echo "Uninstalling..."
+       sleep 2
+       cd .. && rm -r Black-Tool && cd /usr/bin && rm -r hack
+       echo "
+Finish...!
+  "
+       echo ""
+       echo "
+Mr.nope: Good bye °^° 
+
+"
+       exit 1
+}
+Main
