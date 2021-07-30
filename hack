@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # This code write by Mr.nope
-# Version 2.6.5 New... ;)
+# Version 2.1.4 New... ;)
 # Github: https://github.com/mrprogrammer2938
 # Instagram: https://instagram.com/programmer2938
 # ----------------------------------------------------------------
@@ -27,7 +27,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from os import system as command
-from json import dumps, loads
 import os
 import time
 import re
@@ -37,50 +36,23 @@ import subprocess
 import platform
 import requests
 import webbrowser
-system = platform.uname()[0]
+from Version import version
 try:
     from colorama import Fore,init
     init()
 except ImportError:
     command("pip3 intsll colorama");
 try:
-    import pyttsx3 as pt
-except ImportError:
-    os.system("pip install pyttsx3")
-try:
     import socket
 except ImportError:
     command("pip3 install socket");
-try:
-    import bluetooth
-except ImportError:
-    if system == 'Linux':
-        os.system("apt install libbluetooth-dev")
-        os.system("pip install pybluez")
-    else:
-        print("\nPlease, Run This Programm on Linux, MacOS!\n")
-        sys.exit()
-try:
-    from googlesearch import search
-except ImportError:
-    os.system("pip install googlesearch-python")
-    os.system("pip3 install googlesearch-python")
 try:
     import ipapi
 except ImportError:
     command("pip3 install ipapi");
 # ---------------------------------------------------------------------------------------------------------------
-Black_Tool_info = {
-    "Developer":"Sina Meysami",
-    "CodeName":"Black-Tool",
-    "Version":"2.4.5",
-    "Home":"https://github.com/mrprogrammer2938"
-}
-Black_Tool_du = dumps(Black_Tool_info)
-Black_Tool_lo = loads(Black_Tool_du)
-Black_Tool_Version = "\nBlack-Tool 2.6.5\n"
+Black_Tool_Version = "\nBlack-Tool 2.1.4\n"
 user = subprocess.getoutput("whoami")
-info = Black_Tool_lo
 black_Tool_date = subprocess.getoutput("date").replace("+0430","")
 Black_Tool_cmd_help = """
 clear | clear Screen
@@ -115,7 +87,7 @@ class color:
     white_light = '\033[97m'
 # ----------------------------------------------
 Black_Tool_Search_Err = color.red + "Error, " + color.green + "Please Check URL!" + color.End
-Black_Tool_Version = color.red + "2.6.5" + color.End
+Black_Tool_Version = color.red + "2.1.4" + color.End
 opt_shell = color.line + "Black-Tool" + color.End + "/ ~# "
 opt_cmd = color.line + "Black-Tool" + color.green + "/> " + color.End
 Black_Tool_OS_Err = "\nError, Please Try again!\n"
@@ -125,13 +97,13 @@ res_opt = "\nEnter repositories: "
 Black_Tool_OS_Err_2 = "\nError, Please Try again!\n"
 # --------------------------------------------------------------------------------------------
 def user_os_info():
-    print(color.green + "\n--------Black Tool----------\n" + color.End)
+    print("\n--------Black Tool----------\n")
     print("User: " + user)
     print("os: " + system)
     print("\n----------------------------\n")
     try34()
 def user_os_info_ver():
-    print(color.green + "--------Black Tool----------\n" + color.End)
+    print("--------Black Tool----------\n")
     print("User: " + user)
     print("os: " + system)
     print("\n----------------------------\n")
@@ -147,16 +119,17 @@ def check_internet(host="https://google.com"):
             try:
                 check_internet_title()
                 cls()
-                print("\nCheck Internet...\n")
-                internet = requests.get(host,timeout=14)
-                if internet.status_code == 200:
-                  check_internet_title_Connected()
-                  print("Internet Connected!")
-                  time.sleep(1)
-                  print("\nSet on System....")
-                  time.sleep(1)
-                  user_os_info()
-                  pass
+                if version.Black_Tool['version'] == '2.1.4':
+                    print("\nCheck Internet...\n")
+                    internet = requests.get(host,timeout=14)
+                    if internet.status_code == 200:
+                      check_internet_title_Connected()
+                      print("Internet Connected!")
+                      time.sleep(1)
+                      print("\nSet on System....")
+                      time.sleep(1)
+                      user_os_info()
+                      pass
                 else:
                     sys.exit()
             except KeyboardInterrupt:
@@ -183,36 +156,16 @@ run | run Attack
 exploit | run Attack
 """
 Black_menu_mass = color.green + "Exiting..." + color.End
-Black_Tool_Run_Err = "\nPlease, Run This Programm on Linux Or MacOS!\n"
+system = platform.uname()[0]
 ip = "\nEnter ip: "
 exm = "\nPlease, Enter Ip!"
 packet_2 = "\nEnter packet: "
 port = "\nEnter port: "
-k_Tool_Banner = Fore.BLUE + """
-                     ....''','..                                      
-                   .....'',:ldxo'                                     
-                     ...'',,,,,:c;''....                              
-                    .....     .:lc;;;;:cc,.                      
-                              cl.      .,lc.                          
-                              co.         ..                          
-                              .:l:;,,,,,'.                            
-                                ..'''',;:cc,.                         
-                                          .;,.                        
-                                           ...                        
-                                            .  """ + color.End
-Black_Hack_version = "Black-Tool 2.6.5"
+Black_Hack_version = "Black-Tool 2.1.4"
 def title():
-    if system == 'Linux':
-        os.system("printf '\033]2;Black-Tool\a'")
-    else:
-        print(Black_Tool_Run_Err)
-        sys.exit()
+    command("printf '\033]2;Black-Tool\a'")
 def cls():
-    if system == 'Linux':
-        os.system("clear")
-    else:
-        print(Black_Tool_Run_Err)
-        sys.exit()
+    command("clear")
 def ext():
     cls()
     print(Black_menu_mass)
@@ -220,7 +173,6 @@ def ext():
 def menu():
     try:
         try:
-            pt.speak("Black Tool")
             title()
             cls()
             screen()
@@ -233,7 +185,7 @@ def menu():
         print("\nCtrl + C")
         print("\n{}Exiting... {}".format(color.green,color.End))
         sys.exit()
-# Menu 2.6.5
+# Menu 2.0.2
 def black():
     print("\n{1}.Black-Tool Attack")
     print("{2}.Black-Tool Framework")
@@ -255,12 +207,8 @@ def black():
     print("{18}.Make Tool")
     print("{19}.Installing Pkg")
     print("{20}.Uninstalling Pkg")
-    print("{21}.Recon")
-    print("{22}.K-Tool (New)")
-    print("{23}.Bluetooth Scanner")
-    print("{24}.Cryptography")
-    print("{25}.Help")
-    print("{26}.Update & Uninstall")
+    print("{21}.Help")
+    print("{22}.Update & Uninstall")
     print("{0}.Developer")
     print("[C].Command")
     print("{99}.Exit")
@@ -306,16 +254,8 @@ def black():
     elif choose == '20':
         uninstall_pkg()
     elif choose == '21':
-        Black_recon()
-    elif choose == '22':
-        k_Tool_Installing()
-    elif choose == '23':
-        blue_scan()
-    elif choose == '24':
-        crypt_inst()
-    elif choose == '25':
         start_help()
-    elif choose == '26':
+    elif choose == '22':
         black_Update_Uninstalling()
     elif choose == '0':
         black_tool_developer()
@@ -351,7 +291,11 @@ def black():
     else:
         cls()
         print(choose + color.red + " Not Found!" + color.End)
-        try103()
+        try_to_black_Tool = input("\npress Enter...")
+        if try_to_black_Tool == '':
+            menu()
+        else:
+            menu()
 def black_2():
     title()
     cls()
@@ -375,12 +319,8 @@ def black_2():
     print("{18}.Make Tool")
     print("{19}.Installing Pkg")
     print("{20}.Uninstalling Pkg")
-    print("{21}.Recon")
-    print("{22}.K-Tool (New)")
-    print("{23}.Bluetooth Scan")
-    print("{24}.Cryptography")
-    print("{25}.Help")
-    print("{26}.Update & Uninstall")
+    print("{21}.Help")
+    print("{22}.Update & Uninstall")
     print("{0}.Developer")
     print("[C].Command")
     print("{99}.Exit")
@@ -426,16 +366,8 @@ def black_2():
     elif choose == '20':
         uninstall_pkg_2()
     elif choose == '21':
-        Black_recon_2()
-    elif choose == '22':
-        k_Tool_Installing_2()
-    elif choose == '23':
-        blue_scan_2()
-    elif choose == '24':
-        crypt_inst_2()
-    elif choose == '25':
         start_help_2()
-    elif choose == '26':
+    elif choose == '22':
         black_Update_Uninstalling_2()
     elif choose == '0':
         black_tool_developer_2()
@@ -463,9 +395,7 @@ def black_2():
         print(Black_Tool_Version)
         try65()
     else:
-        cls()
-        print(choose + color.red + " Not Found!" + color.End)
-        try104()
+        black_2()
 def try34():
     try:
         try:
@@ -556,90 +486,6 @@ def try91():
         black_2()
     else:
         black_2()
-def crypt_inst():
-    cls()
-    print("Installing...")
-    run_4 = subprocess.getoutput("git clone https://github.com/mrprogrammer2938/Cryptography")
-    try_to_start_cry()
-def try_to_start_cry():
-    try_to_start_2 = input("\nDo you want to start Cryptography-Tool? [y/n] ")
-    if try_to_start_2 == 'y':
-        os.system("cd Cryptography && bash install.sh && python3 crypt.py")
-        try_to_menu_70()
-    elif try_to_start_2 == 'n':
-        try_to_menu_70()
-    else:
-        try75()
-def crypt_inst_2():
-    cls()
-    print("Installing...")
-    run_5 = subprocess.getoutput("git clone https://github.com/mrprogrammer2938/Cryptography")
-    try_to_start_3()
-def try_to_start_3():
-    try_to_start_4 = input("\nDo you want to start Cryptography-Tool? [y/n] ")
-    if try_to_start_4 == 'y':
-        os.system("cd Cryptography && bash install.sh && python3 crypt.py")
-        try_to_menu_71()
-    elif try_to_start_4 == 'n':
-        try_to_menu_71()
-    else:
-        try75()
-def Black_recon():
-    cls()
-    print("---[ Black Recon ]---\n")
-    web = input(ip)
-    for i in search(web):
-        print(Fore.GREEN)
-        print(i)
-        print(color.End)
-    try98()
-def Black_recon_2():
-    cls()
-    print(Fore.GREEN + "---[ Black Recon ]---\n" + color.End)
-    web = input(ip)
-    for i in search(web):
-        print(Fore.GREEN)
-        print(i)
-        print(color.End)
-    try99()
-def try99():
-    try_again_4 = input("\nDo you want to try again? [y/n] ")
-    if try_again_4 == 'y':
-        Black_recon_2()
-    elif try_again_4 == 'n':
-        try102()
-    else:
-        try99()
-def try98():
-    try_to_menu_5 = input("\nDo you want to try again? [y/n] ")
-    if try_to_menu_5 == 'y':
-        Black_recon()
-    elif try_to_menu_5 == 'n':
-        try101()
-    else:
-        try98()
-def try101():
-    try_to_menu = input("\nDo you want to back Main Menu? [y/n] ")
-    if try_to_menu == 'y':
-        menu()
-    elif try_to_menu == 'n':
-        try100()
-    else:
-        try101()
-def try102():
-    try_to_menu = input("\nDo you want to back Main Menu? [y/n] ")
-    if try_to_menu == 'y':
-        black_2()
-    elif try_to_menu == 'n':
-        try100()
-    else:
-        try101()
-def try100():
-    try_to_exit_2 = input("\npress Enter...")
-    if try_to_exit_2 == '':
-        ext()
-    else:
-        ext()
 def black_installing_lan():
     cls()
     command("figlet -f slant Black-Tool|lolcat")
@@ -694,32 +540,6 @@ def black_installing_lan():
         try_to_menu_2_Err = input("\npress Enter...")
         if try_to_menu_2_Err == '':
             black_installing_lan()
-def k_Tool_Installing():
-    cls()
-    print(k_Tool_Banner)
-    print("\nInstalling...")
-    run_2 = subprocess.getoutput("git clone https://github.com/mrprogrammer2938/K-Tool")
-    try_to_menu_70()
-def k_Tool_Installing_2():
-    cls()
-    print(k_Tool_Banner)
-    print("\nInstalling...")
-    run_3 = subprocess.getoutput("git clone https://github.com/mrprogrammer2938/K-Tool")
-    try_to_menu_71()
-def try_to_menu_70():
-    try_to_Main_Menu = input("\npress Enter...")
-    if try_to_Main_Menu == '':
-        menu()
-    else:
-        menu()
-def try_to_menu_71():
-    try_to_Main_Menu_2 = input("\npress Enter...")
-    if try_to_Main_Menu_2 == '':
-        cls()
-        black_2()
-    else:
-        cls()
-        black_2()
 def black_installing_lan_2():
     cls()
     command("figlet -f slant Black-Tool|lolcat")
@@ -973,18 +793,6 @@ def pkg_install_2():
     time.sleep(1)
     command("apt install pkg_name")
     try88()
-def try103():
-    try_to_menu_19 = input("\npress Enter...")
-    if try_to_menu_19 == '':
-        menu()
-    else:
-        menu()
-def try104():
-    try_to_menu_20 = input("\npress Enter...")
-    if try_to_menu_20 == '':
-        black_2()
-    else:
-        black_2()
 def try88():
     try_to_menu_17 = input("\nDo you want to try again? [y/n] ")
     if try_to_menu_17 == 'y':
@@ -993,84 +801,12 @@ def try88():
         try87()
     else:
         try86()
-def blue_scan():
-    cls()
-    print("Scanning...")
-    s = bluetooth.discover_devices(lookup_names = True,lookup_class = True)
-    s_l = len(s)
-    print(f"{s_l} Device Found!\n")
-    for i in s_l:
-        for addr,name,class_nm in s_l:
-            print("\nDevice Name: {}".format(name))
-            print("\nMac Address: {}".format(addr))
-            print("\nClass: {}".format(class_nm))
-            print("--------------------------------\n")
-        break;
-    try81()
 def try89():
     try_to_menu_18 = input("\npress Enter...")
     if try_to_menu_18 == '':
         installing_pkg_2()
     else:
         installing_pkg_2()
-def try81():
-    try_again_blue_ = input("\nDo you want to try again? [y/n] ")
-    if try_again_blue_ == 'y':
-        blue_scan()
-    elif try_again_blue_ == 'n':
-        try90()
-    else:
-        try81()
-def try90():
-    try_to_menu = input("\nDo you want to back Main Menu? [y/n] ")
-    if try_to_menu == 'y':
-        menu()
-    elif try_to_menu == 'n':
-        try91()
-    else:
-        try90()
-def try91():
-    try_to_exit_2 = input("\npress Enter...")
-    if try_to_exit_2 == '':
-        ext()
-    else:
-        ext()
-def blue_scan_2():
-    cls()
-    print("Scanning...")
-    s = bluetooth.discover_devices(lookup_names = True,lookup_class = True)
-    s_l = len(s)
-    print(f"{s_l} Device Found!\n")
-    for i in s_l:
-        for addr,name,class_nm in s_l:
-            print("\nDevice Name: {}".format(name))
-            print("\nMac Address: {}".format(addr))
-            print("\nClass: {}".format(class_nm))
-            print("--------------------------------\n")
-        break;
-    try93()
-def try93():
-    try_again_blue_ = input("\nDo you want to try again? [y/n] ")
-    if try_again_blue_ == 'y':
-        blue_scan()
-    elif try_again_blue_ == 'n':
-        try94()
-    else:
-        try81()
-def try94():
-    try_to_menu = input("\nDo you want to back Main Menu? [y/n] ")
-    if try_to_menu == 'y':
-        menu()
-    elif try_to_menu == 'n':
-        try95()
-    else:
-        try90()
-def try95():
-    try_to_exit_2 = input("\npress Enter...")
-    if try_to_exit_2 == '':
-        ext()
-    else:
-        ext()
 def pkg_uninstall_2():
     cls()
     pkg_name = input(pkg_opt)
@@ -1761,7 +1497,7 @@ def try46():
     if try_to_Black_Tool_whois_2 == 'y':
         black_tool_ipapi_whois_2()
     elif black_tool_ipapi_whois_2 == 'n':
-        try39()
+        39()
     else:
         try46()
 def black_tool_ipapi_internet_test():
@@ -3287,20 +3023,20 @@ def black_tool_developer():
     command("printf '\033]2;Black-Tool\a'")
     cls()
     command("figlet -f slant Black-Tool|lolcat")
-    print(color.green + "\nThis code write by " + color.blue + info["Developer"] + color.End)
-    print(color.prlblue + "\nProgramm Name: " + color.red + info["CodeName"] + color.End)
-    print(color.red + "\nVersion: " + color.darkblue + info["Version"] + color.End)
-    print(color.org + "\nGithub: " + color.green + info["Home"] + color.End)
+    print(color.green + "\nThis code write by " + color.blue + "Mr.nope" + color.End)
+    print(color.prlblue + "\nProgramm Name: " + color.red + "Black-Tool" + color.End)
+    print(color.red + "\nVersion: " + color.darkblue + Black_Tool_Version + color.End)
+    print(color.org + "\nGithub: " + color.green + "https://github.com/mrprogrammer2938" + color.End)
     time.sleep(2)
     try57()
 def black_tool_developer_2():
     command("printf '\033]2;Black-Tool\a'")
     cls()
     command("figlet -f slant Black-Tool|lolcat")
-    print(color.green + "\nThis code write by " + color.blue + info["Developer"] + color.End)
-    print(color.prlblue + "\nProgramm Name: " + color.red + info["CodeName"] + color.End)
-    print(color.red + "\nVersion: " + color.darkblue + info["Version"] + color.End)
-    print(color.org + "\nGithub: " + color.green + info["Home"] + color.End)
+    print(color.green + "\nThis code write by " + color.blue + "Mr.nope" + color.End)
+    print(color.prlblue + "\nProgramm Name: " + color.red + "Black-Tool" + color.End)
+    print(color.red + "\nVersion: " + color.darkblue + Black_Tool_Version + color.End)
+    print(color.org + "\nGithub: " + color.green + "https://github.com/mrprogrammer2938" + color.End)
     time.sleep(2)
     try60()
 def try57():
@@ -3442,4 +3178,4 @@ if __name__ == '__main__':
   except IndexError:
       print("\nPlease, Usage: --help\n")
       sys.exit()
-# Black-Tool 2.6.5
+# Black-Tool 2.1.4
