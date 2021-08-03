@@ -1,4 +1,6 @@
 # Black-Tool ⬛⬛⬛
+<hr>
+
 <!--
 Black-Tool v2.6.5
 -->
@@ -125,6 +127,7 @@ cd Update
 ```
 ./uninstall.sh
 ```
+<br>
 
 [![Black_Tool_Banner_Pictures](https://user-images.githubusercontent.com/78996423/123559118-588fcd80-d7af-11eb-8552-e740bfba75de.jpeg)](https://github.com/mrprogrammer2938/Black-Tool)
 
